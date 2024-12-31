@@ -49,16 +49,6 @@ npm start
 The API will be running at http://localhost:3000.
 ```
 
-🌍 Deploying to RapidAPI
-
-To deploy your API to RapidAPI:
-
-Create an account on RapidAPI.
-
-Link your API and set the methods (GET or POST).
-
-Test and deploy your API to the RapidAPI platform.
-
 💬 Contributing
 
 We welcome contributions! If you’d like to add features, fix bugs, or improve documentation, feel free to fork the repo and submit a pull request.
