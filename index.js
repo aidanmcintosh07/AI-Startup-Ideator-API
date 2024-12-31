@@ -64,7 +64,7 @@ app.get("/monetization-strategies", async (req, res) => {
 });
 
 // Generate Startup Idea
-app.post("/generate-idea", async (req, res) => {
+app.get("/generate-idea", async (req, res) => {
 	const industry = req.query.industry;
 	const skills = req.query.skills;
 	const budget = req.query.budget;
@@ -84,7 +84,7 @@ app.post("/generate-idea", async (req, res) => {
 });
 
 // Refine Idea
-app.post("/refine-idea", async (req, res) => {
+app.get("/refine-idea", async (req, res) => {
 	const idea_description = req.query.idea_description;
 	const refinement_criteria = req.query.refinement_criteria;
 
@@ -103,3 +103,5 @@ app.post("/refine-idea", async (req, res) => {
 app.listen(PORT, () => {
 	console.log(`Server is running on port ${PORT}`);
 });
+
+// TODO: The idea_id implementation was to created by saving the contents of the /generate-idea endpoint to a database and then using the idea_id to retrieve the idea for further refinement. This can be implemented using a database like MongoDB or Firebase Firestore.
