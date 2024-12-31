@@ -25,6 +25,7 @@ RapidAPI: For easy API management and deployment, allowing you to connect with u
 
 
 🚀 Getting Started
+
 Clone the repo:
 ```
 git clone https://github.com/yourusername/startup-ideator-api.git
