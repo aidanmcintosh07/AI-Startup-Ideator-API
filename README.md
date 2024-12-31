@@ -10,12 +10,15 @@ Monetization Strategies: Discover effective ways to monetize your idea and start
 And more...
 
 ⚡ Endpoints
+
 /generate-idea: Get a fresh, innovative startup idea based on your preferences and expertise.
 /get-tech-stack: Receive a personalized tech stack to help you build your dream project.
 /monetization-strategies: Explore monetization strategies for your new business.
 /market-insights
 /refine-idea
+
 🛠 Tech Stack
+
 This API is built with cutting-edge technologies to bring you the best results:
 
 Node.js: The runtime environment for building scalable and efficient backend services.
@@ -47,15 +50,21 @@ The API will be running at http://localhost:3000.
 ```
 
 🌍 Deploying to RapidAPI
+
 To deploy your API to RapidAPI:
 
 Create an account on RapidAPI.
+
 Link your API and set the methods (GET or POST).
+
 Test and deploy your API to the RapidAPI platform.
+
 💬 Contributing
+
 We welcome contributions! If you’d like to add features, fix bugs, or improve documentation, feel free to fork the repo and submit a pull request.
 
 📜 License
+
 This project is licensed under the MIT License — see the LICENSE file for details.
 
 Let me know if you'd like further tweaks or additions! 😊
