@@ -1,4 +1,4 @@
-🚀 Startup Ideator API
+🚀 **Startup Ideator API
 
 Welcome to the Startup Ideator API — your AI-powered assistant for generating innovative, personalized startup ideas! Whether you're just starting out or scaling up, this API helps you craft business concepts tailored to your skills, budget, and passions. 🌱
 
