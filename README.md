@@ -22,26 +22,28 @@ Node.js: The runtime environment for building scalable and efficient backend ser
 Express.js: A minimalist web framework for building fast and secure REST APIs.
 OpenAI API: Harnessing the power of GPT models to generate innovative startup ideas, tech stacks, and monetization strategies. 🤖
 RapidAPI: For easy API management and deployment, allowing you to connect with users and scale globally. 🌍
+
+
 🚀 Getting Started
 Clone the repo:
-
-bash
-Copy code
+```
 git clone https://github.com/yourusername/startup-ideator-api.git
 cd startup-ideator-api
+```
+
 Install dependencies:
 
-bash
-Copy code
+```
 npm install
+```
 Set up environment variables (e.g., for OpenAI API keys) in a .env file.
 
 Start the server locally:
 
-bash
-Copy code
+```
 npm start
 The API will be running at http://localhost:3000.
+```
 
 🌍 Deploying to RapidAPI
 To deploy your API to RapidAPI:
