@@ -1,10 +1,14 @@
 🚀 Startup Ideator API
+
 Welcome to the Startup Ideator API — your AI-powered assistant for generating innovative, personalized startup ideas! Whether you're just starting out or scaling up, this API helps you craft business concepts tailored to your skills, budget, and passions. 🌱
 
 🌟 Key Features
+
 Creative Startup Ideas: Generate unique business concepts based on your industry, skills, target audience, and passions.
 Tech Stack Recommendations: Get a customized tech stack suited to your startup idea’s needs.
 Monetization Strategies: Discover effective ways to monetize your idea and start earning from day one. 💰
+And more...
+
 ⚡ Endpoints
 /generate-idea: Get a fresh, innovative startup idea based on your preferences and expertise.
 /get-tech-stack: Receive a personalized tech stack to help you build your dream project.
