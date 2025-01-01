@@ -1,6 +1,8 @@
 import "dotenv/config";
 import express from "express";
 import OpenAI from "openai";
+import db from "./db/conn.mjs";
+import { ObjectId } from "mongodb";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -62,7 +64,7 @@ app.get("/monetization-strategies", async (req, res) => {
 });
 
 // Generate Startup Idea
-app.get("/generate-idea", async (req, res) => {
+app.post("/generate-idea", async (req, res) => {
 	const industry = req.query.industry;
 	const skills = req.query.skills;
 	const budget = req.query.budget;
@@ -71,32 +73,79 @@ app.get("/generate-idea", async (req, res) => {
 
 	const prompt = `Create a unique startup idea based on the following: industry (${industry}), available skills (${skills}), budget (${budget}), target audience (${target_audience}), and passions (${passions}). Return the response in raw JSON format with the following fields: startup_name, overview, key_features (as a list), what_sets_it_apart, target_audience, and conclusion. Do not include any symbols, markdown formatting, or backticks.`;
 
-	const completion = await openai.chat.completions.create({
-		messages: [{ role: "user", content: prompt }],
-		model: "gpt-4o-mini",
-	});
+	try {
+		const completion = await openai.chat.completions.create({
+			messages: [{ role: "user", content: prompt }],
+			model: "gpt-4o-mini",
+		});
 
-	res.send(completion.choices[0].message.content);
+		const startup_idea = db.collection("ideas");
+		const newDoc = JSON.parse(completion.choices[0].message.content);
+
+		await startup_idea.insertOne(newDoc);
+
+		res.send({
+			success: true,
+			message: "Startup idea generated and saved successfully.",
+			idea_id: newDoc._id,
+			data: {
+				startup_name: newDoc.startup_name,
+				overview: newDoc.overview,
+				key_features: newDoc.key_features,
+				what_sets_it_apart: newDoc.what_sets_it_apart,
+				target_audience: newDoc.target_audience,
+				conclusion: newDoc.conclusion,
+			},
+		});
+	} catch (error) {
+		console.error("Error generating or saving startup idea:", error);
+		res
+			.status(500)
+			.send("An error occurred while generating the startup idea.");
+	}
 });
 
 // Refine Idea
 app.get("/refine-idea", async (req, res) => {
-	const idea_description = req.query.idea_description;
+	const idea_id = req.query.idea_id;
 	const refinement_criteria = req.query.refinement_criteria;
 
-	const prompt = `Refine the startup idea described as: '${idea_description}' based on the following criteria: ${refinement_criteria}. Return the response in raw JSON format with the following fields: improved_idea, additional_features (as a list), and adjustments. Do not include any symbols, markdown formatting, or backticks.`;
+	try {
+		const ideas = db.collection("ideas");
 
-	const completion = await openai.chat.completions.create({
-		messages: [{ role: "user", content: prompt }],
-		model: "gpt-4o-mini",
-	});
+		const query = { _id: new ObjectId(idea_id) };
 
-	res.send(completion.choices[0].message.content);
+		const idea = await ideas.findOne(query);
+
+		if (!idea) {
+			return res
+				.status(404)
+				.send({ success: false, message: "Idea not found." });
+		}
+
+		const prompt = `Refine the startup idea as shown: '${JSON.stringify(
+			idea
+		)}' based on the following criteria: ${refinement_criteria}. Return the response in raw JSON format with the following fields: improved_idea, additional_features (as a list), and adjustments. Do not include any symbols, markdown formatting, or backticks.`;
+
+		const completion = await openai.chat.completions.create({
+			messages: [{ role: "user", content: prompt }],
+			model: "gpt-4o-mini",
+		});
+
+		const refinedContent = JSON.parse(completion.choices[0].message.content);
+
+		res.send({
+			success: true,
+			message: "Startup idea refined successfully.",
+			idea_id,
+			data: refinedContent,
+		});
+	} catch (error) {
+		console.error("Error refining startup idea:", error);
+		res.status(500).send("An error occurred while refining the startup idea.");
+	}
 });
 
 app.listen(PORT, () => {
 	console.log(`Server is running on port ${PORT}`);
 });
-
-// TODO: The idea_id implementation was to created by saving the contents of the /generate-idea endpoint to a database and then using the idea_id to retrieve the idea for further refinement. This can be implemented using a database like MongoDB or Firebase Firestore.
-// TODO: Split the response into key value pairs in an object and send the object as the response to the client.
