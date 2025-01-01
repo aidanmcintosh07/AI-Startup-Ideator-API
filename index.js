@@ -22,7 +22,7 @@ app.get("/market-insights", async (req, res) => {
 	const industry = req.query.industry;
 	const region = req.query.region;
 
-	const prompt = `Provide a concise summary of key market insights for the ${industry} industry in ${region}, covering trends, opportunities, challenges, major players, and future outlook.`;
+	const prompt = `Provide a concise summary of key market insights for the ${industry} industry in ${region}, covering trends, opportunities, challenges, major players, and future outlook. Ensure the output is clean, professional, and free of any symbols or markdown formatting.`;
 
 	const completion = await openai.chat.completions.create({
 		messages: [{ role: "user", content: prompt }],
@@ -37,7 +37,7 @@ app.get("/get-tech-stack", async (req, res) => {
 	const idea_description = req.query.idea_description;
 	const scale = req.query.scale;
 
-	const prompt = `Suggest the most suitable tech stack for building a ${scale} project described as: '${idea_description}'. Include frontend, backend, database, and any other relevant technologies. Keep the response concise and practical.`;
+	const prompt = `Suggest the most suitable tech stack for building a ${scale} project described as: '${idea_description}'. Include frontend, backend, database, and any other relevant technologies. Keep the response concise and practical. Ensure the output is clean, professional, and free of any symbols or markdown formatting.`;
 
 	const completion = await openai.chat.completions.create({
 		messages: [{ role: "user", content: prompt }],
@@ -51,7 +51,7 @@ app.get("/get-tech-stack", async (req, res) => {
 app.get("/monetization-strategies", async (req, res) => {
 	const idea_description = req.query.idea_description;
 
-	const prompt = `Suggest effective monetization strategies for a startup idea described as: '${idea_description}'. Include specific methods tailored to the target audience and business type. Keep the response practical and concise.`;
+	const prompt = `Suggest effective monetization strategies for a startup idea described as: '${idea_description}'. Include specific methods tailored to the target audience and business type. Keep the response practical and concise. Ensure the output is clean, professional, and free of any symbols or markdown formatting.`;
 
 	const completion = await openai.chat.completions.create({
 		messages: [{ role: "user", content: prompt }],
@@ -69,7 +69,7 @@ app.get("/generate-idea", async (req, res) => {
 	const target_audience = req.query.target_audience;
 	const passions = req.query.passions;
 
-	const prompt = `Create a unique startup idea based on the following: industry (${industry}), available skills (${skills}), budget (${budget}), target audience (${target_audience}), and passions (${passions}), including a brief description, key features, and what sets it apart.`;
+	const prompt = `Create a unique startup idea based on the following: industry (${industry}), available skills (${skills}), budget (${budget}), target audience (${target_audience}), and passions (${passions}). Provide a clear, structured response with labeled sections like Startup Idea, Overview, Key Features, What Sets It Apart, Target Audience, and Conclusion. Ensure the output is clean, professional, and free of any symbols or markdown formatting.`;
 
 	const completion = await openai.chat.completions.create({
 		messages: [{ role: "user", content: prompt }],
@@ -84,7 +84,7 @@ app.get("/refine-idea", async (req, res) => {
 	const idea_description = req.query.idea_description;
 	const refinement_criteria = req.query.refinement_criteria;
 
-	const prompt = `Refine the startup idea described as: '${idea_description}' based on the following criteria: ${refinement_criteria}. Provide specific improvements, additional features, or adjustments to make the idea more viable and appealing.`;
+	const prompt = `Refine the startup idea described as: '${idea_description}' based on the following criteria: ${refinement_criteria}. Provide specific improvements, additional features, or adjustments to make the idea more viable and appealing. Ensure the output is clean, professional, and free of any symbols or markdown formatting.`;
 
 	const completion = await openai.chat.completions.create({
 		messages: [{ role: "user", content: prompt }],
