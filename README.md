@@ -1,26 +1,17 @@
-# AI Startup Ideator API Documentation
+# 🚀 AI Startup Ideator API Documentation
 
-## Introduction
+## 🌟 Introduction
 
 Welcome to the AI Startup Ideator API! This API is designed to help entrepreneurs, developers, and innovators create actionable startup ideas, discover suitable tech stacks, and identify monetization strategies tailored to their unique requirements.
 
 Whether you're an aspiring business owner or building tools for ideation, this API is your partner in innovation.
 
-## Base URL
+## 🌐 Base URL
 
 https://ai-startup-ideator-api.onrender.com
 
-## Authentication
-
-The Startup Ideator API uses RapidAPI Key-based authentication. You need to include your API key in the headers of each request:
-```
-{
-  "X-RapidAPI-Key": "YOUR_RAPIDAPI_KEY",
-  "X-RapidAPI-Host": "YOUR_API_HOST"
-}
-```
-## Endpoints
-1. `GET /market-insights`
+## 📖 Endpoints
+1. 🛍️ `GET /market-insights`
 
 **Purpose:**
 
@@ -51,7 +42,7 @@ GET /market-insights?industry=e-commerce&region=North%20America
   "future_outlook": "E-commerce will continue to grow with increased adoption of AI and mobile shopping."
 }
 ```
-2. `GET /get-tech-stack`
+2. 🛠️ `GET /get-tech-stack`
 
 **Purpose:**
 
@@ -81,7 +72,7 @@ GET /get-tech-stack?idea_description=food%20delivery%20app&scale=medium
   "additional_technologies": "Stripe API, Firebase"
 }
 ```
-3. `GET /monetization-strategies`
+3. 💰 `GET /monetization-strategies`
 
 **Purpose:**
 
@@ -106,7 +97,7 @@ GET /monetization-strategies?idea_description=online%20education%20platform
   "business_type": "B2C"
 }
 ```
-4. `POST /generate-idea`
+4. ✨ `POST /generate-idea`
 
 **Purpose:**
 
@@ -144,7 +135,7 @@ Example Response:
 }
 ```
 
-5. `GET /refine-idea`
+5. 🛠️ `GET /refine-idea`
 
 **Purpose:**
 
@@ -177,11 +168,11 @@ GET /refine-idea?idea_id=60c72b2f9cbd0b3b2c99f4b3&refinement_criteria=improve%20
 }
 ```
 
-## Support
+## 📧 Support
 
 For any queries or issues, please contact us at aidanamcintosh@gmail.com or send a direct message on RapidAPI
 
-## Start Innovating
+## 🚀 Start Innovating
 
 Explore the full potential of the AI Startup Ideator API by visiting our RapidAPI page. Let's turn your entrepreneurial dreams into reality!
 
