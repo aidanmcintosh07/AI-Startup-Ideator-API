@@ -7,5 +7,5 @@ try {
 } catch (e) {
 	console.error(e);
 }
-let db = conn.db("AIStartupIdeatorDB");
+let db = conn.db("ai_startup_ideator");
 export default db;
