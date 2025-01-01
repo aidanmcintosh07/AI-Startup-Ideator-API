@@ -10,7 +10,7 @@ const openai = new OpenAI({
 });
 
 app.get("/ping", (req, res) => {
-	if (req.statusCode === 200) {
+	if (req.statusCode === "200") {
 		res.send("Health Check Request Successful");
 	} else {
 		res.send("Health Check Request Failed");
