@@ -9,8 +9,12 @@ const openai = new OpenAI({
 	apiKey: process.env.OPENAI_API_KEY,
 });
 
-app.get("/", (req, res) => {
-	res.send("Hello World");
+app.get("/ping", (req, res) => {
+	if (req.statusCode === 200) {
+		res.send("Health Check Request Successful");
+	} else {
+		res.send("Health Check Request Failed");
+	}
 });
 
 // Market Insights
@@ -25,9 +29,7 @@ app.get("/market-insights", async (req, res) => {
 		model: "gpt-4o-mini",
 	});
 
-	console.log(completion.choices[0].message.content);
-
-	res.send("Market Insights for " + industry + " in " + region);
+	res.send(completion.choices[0].message.content);
 });
 
 // Tech Stack
@@ -42,9 +44,7 @@ app.get("/get-tech-stack", async (req, res) => {
 		model: "gpt-4o-mini",
 	});
 
-	console.log(completion.choices[0].message.content);
-
-	res.send("Tech Stack for " + idea_description + " at " + scale + " scale");
+	res.send(completion.choices[0].message.content);
 });
 
 // Monetization Strategies
@@ -58,9 +58,7 @@ app.get("/monetization-strategies", async (req, res) => {
 		model: "gpt-4o-mini",
 	});
 
-	console.log(completion.choices[0].message.content);
-
-	res.send("Monetization Strategies for " + idea_description);
+	res.send(completion.choices[0].message.content);
 });
 
 // Generate Startup Idea
@@ -78,9 +76,7 @@ app.get("/generate-idea", async (req, res) => {
 		model: "gpt-4o-mini",
 	});
 
-	console.log(completion.choices[0].message.content);
-
-	res.send("Generated Startup Idea");
+	res.send(completion.choices[0].message.content);
 });
 
 // Refine Idea
@@ -95,9 +91,7 @@ app.get("/refine-idea", async (req, res) => {
 		model: "gpt-4o-mini",
 	});
 
-	console.log(completion.choices[0].message.content);
-
-	res.send("Refined Startup Idea");
+	res.send(completion.choices[0].message.content);
 });
 
 app.listen(PORT, () => {
