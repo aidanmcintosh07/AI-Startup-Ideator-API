@@ -65,11 +65,7 @@ app.get("/monetization-strategies", async (req, res) => {
 
 // Generate Startup Idea
 app.post("/generate-idea", async (req, res) => {
-	const industry = req.query.industry;
-	const skills = req.query.skills;
-	const budget = req.query.budget;
-	const target_audience = req.query.target_audience;
-	const passions = req.query.passions;
+	const { industry, skills, budget, target_audience, passions } = req.body;
 
 	const prompt = `Create a unique startup idea based on the following: industry (${industry}), available skills (${skills}), budget (${budget}), target audience (${target_audience}), and passions (${passions}). Return the response in raw JSON format with the following fields: startup_name, overview, key_features (as a list), what_sets_it_apart, target_audience, and conclusion. Do not include any symbols, markdown formatting, or backticks.`;
 
