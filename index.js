@@ -1,10 +1,11 @@
 import "dotenv/config";
 import express from "express";
 import OpenAI from "openai";
-import db from "./db/conn.mjs";
 import { ObjectId } from "mongodb";
+import db from "./server/db/conn.mjs";
 
 const app = express();
+app.use(express.json());
 const PORT = process.env.PORT || 3000;
 
 const openai = new OpenAI({
