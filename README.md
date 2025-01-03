@@ -8,7 +8,7 @@ Whether you're an aspiring business owner or building tools for ideation, this A
 
 ## 🌐 Base URL
 
-https://ai-startup-ideator-api.onrender.com
+https://ai-startup-ideator-api.onrender.com/api/v1
 
 ## 📖 Endpoints
 1. 🛍️ `GET /market-insights`
